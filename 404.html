@@ -3,40 +3,63 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Page Not Found - AgroGuardAI</title>
-  <meta name="description" content="The page you're looking for doesn't exist.">
-  <meta name="robots" content="noindex">
+  <title>Page Not Found | AgroGuardAI</title>
+  <meta name="description" content="The page you're looking for doesn't exist. Return to the AgroGuardAI homepage.">
+  <meta name="theme-color" content="#10b981">
   <link rel="icon" href="mylogo.webp">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <style>
-    .error-page { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: var(--space-xl); background: linear-gradient(160deg, #f0faf0 0%, #ffffff 60%); }
-    .error-page__inner { text-align: center; max-width: 520px; }
-    .error-page__code { font-size: clamp(5rem, 15vw, 9rem); font-weight: 800; color: var(--forest-green); opacity: 0.15; line-height: 1; letter-spacing: -0.04em; margin-bottom: var(--space-md); }
-    .error-page__title { font-size: var(--text-3xl); font-weight: 800; color: var(--text-primary); margin-bottom: var(--space-md); letter-spacing: -0.02em; }
-    .error-page__subtitle { font-size: var(--text-lg); color: var(--text-secondary); margin-bottom: var(--space-2xl); line-height: 1.6; }
-    .error-page__actions { display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap; }
-    .error-page__logo { display: flex; align-items: center; justify-content: center; gap: var(--space-sm); font-weight: 700; font-size: var(--text-lg); color: var(--text-primary); text-decoration: none; margin-bottom: var(--space-3xl); }
-    .error-page__logo:hover { color: var(--forest-green); }
-  </style>
+  <noscript><style>@media (prefers-color-scheme:dark){html{background:#0a0f0d;color:#f1f5f9}}</style></noscript>
 </head>
 <body>
-  <div class="error-page">
-    <div class="error-page__inner">
-      <a href="index" class="error-page__logo">
-        <span class="header__logo-icon">AG</span>
-        AgroGuardAI
+  <a href="index.html" class="skip-link">Skip to main content</a>
+  <header class="header" role="banner">
+    <div class="header__inner">
+      <a href="index.html" class="header__logo" aria-label="AgroGuardAI Home">
+        <img src="mylogo.webp" alt="AgroGuardAI" class="header__logo-img" width="32" height="32">
+        <span class="header__logo-text">AgroGuardAI</span>
       </a>
-      <div class="error-page__code">404</div>
-      <h1 class="error-page__title">Field Not Found</h1>
-      <p class="error-page__subtitle">This page doesn't exist — perhaps it was moved, or the link was mistyped. Let's get you back to solid ground.</p>
-      <div class="error-page__actions">
-        <a href="index" class="btn btn--primary btn--lg">Back to Home</a>
-        <a href="contact" class="btn btn--outline btn--lg">Contact Support</a>
-      </div>
+      <nav class="header__nav" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="header__nav-link">Home</a>
+        <a href="agromind.html" class="header__nav-link">AgroMind</a>
+        <a href="agrorobotics.html" class="header__nav-link">AgroRobotics</a>
+        <a href="intelligence.html" class="header__nav-link">Intelligence</a>
+        <a href="api.html" class="header__nav-link">API</a>
+        <a href="pricing.html" class="header__nav-link">Pricing</a>
+      </nav>
+      <button class="header__mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="header__mobile-toggle-bar"></span>
+        <span class="header__mobile-toggle-bar"></span>
+        <span class="header__mobile-toggle-bar"></span>
+      </button>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <span class="theme-toggle__icon">☀️</span>
+      </button>
     </div>
-  </div>
+    <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+      <a href="index.html" class="mobile-menu__link">Home</a>
+      <a href="agromind.html" class="mobile-menu__link">AgroMind</a>
+      <a href="agrorobotics.html" class="mobile-menu__link">AgroRobotics</a>
+      <a href="intelligence.html" class="mobile-menu__link">Intelligence</a>
+      <a href="api.html" class="mobile-menu__link">API</a>
+      <a href="pricing.html" class="mobile-menu__link">Pricing</a>
+    </div>
+  </header>
+  <main id="main-content" role="main">
+    <section class="hero hero--short">
+      <div class="hero__content">
+        <h1 class="hero__title">404</h1>
+        <p class="hero__subtitle">Page not found</p>
+        <p class="hero__description">The page you're looking for doesn't exist or has been moved. Let's get you back on track.</p>
+        <a href="index.html" class="btn btn--primary btn--lg">Return Home</a>
+      </div>
+    </section>
+  </main>
+  <footer class="footer" role="contentinfo">
+    <div class="footer__inner">
+      <p>&copy; 2026 AgroGuardAI. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="main.js"></script>
 </body>
 </html>
