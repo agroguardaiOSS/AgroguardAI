@@ -72,47 +72,150 @@
 
   <!-- Hero Section -->
   <section class="hero hero--home" aria-label="Hero">
+    <div class="hero__bg" aria-hidden="true">
+      <div class="hero__bg-orb hero__bg-orb--1"></div>
+      <div class="hero__bg-orb hero__bg-orb--2"></div>
+      <div class="hero__bg-orb hero__bg-orb--3"></div>
+      <div class="hero__bg-pattern"></div>
+    </div>
     <div class="container">
-      <div class="hero__content animate-on-scroll">
-        <div class="hero__label">
-          <img src="african-impact-logo.webp" alt="African Impact Initiative" class="hero__label-icon" loading="lazy">
-          African Impact Challenge 2026 Cohort
+      <div class="hero__grid">
+        <div class="hero__text">
+          <h1 class="hero__headline">AI for <span class="highlight">African Agriculture.</span></h1>
+          <div class="hero__badges" role="list" aria-label="Key capabilities">
+            <span class="hero__badge" role="listitem">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 8l6 6L21 4"/><path d="M4 14l4 4L20 8"/></svg>
+              Local Languages
+            </span>
+            <span class="hero__badge" role="listitem">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Offline Support
+            </span>
+            <span class="hero__badge" role="listitem">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              Disease Detection
+            </span>
+            <span class="hero__badge" role="listitem">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+              Pest Identification
+            </span>
+          </div>
+          <p class="hero__subtitle">Diagnose crop diseases, identify pests, and get farming advice in local languages&mdash;even offline.</p>
+          <div class="hero__actions">
+            <a href="agromind" class="btn btn--primary btn--lg">Try AgroMind</a>
+            <a href="contact" class="btn btn--outline-white btn--lg">Request a Demo</a>
+          </div>
         </div>
-        <h1 class="hero__title">
-          The <span class="highlight">Intelligence Layer</span><br>for Global Agriculture
-        </h1>
-        <p class="hero__subtitle">
-          AgroGuardAI is a specialized Large Language Model (LLM) built specifically for the complexities of global agriculture. We provide the foundational intelligence that powers everything from localized, multilingual farmer advisory to autonomous agricultural hardware and robotics. By processing vast agricultural datasets, satellite imagery, and real-time environmental feeds, our model bridges the gap between software and physical farming. Whether you are building the next generation of ag-tech applications through our API, or deploying precision drone fleets in the field, AgroGuardAI serves as the unified brain for a more resilient, data-driven food system.
-        </p>
-        <div class="hero__actions">
-          <a href="pricing" class="btn btn--primary btn--lg">Start Building</a>
-          <a href="intelligence" class="btn btn--outline-white btn--lg">
-            Explore the Platform
-          </a>
+        <div class="hero__visual">
+          <div class="phone" role="img" aria-label="AgroMind mobile app interface showing cassava disease diagnosis">
+            <div class="phone__screen">
+              <div class="phone__status-bar">
+                <span class="phone__time">9:41</span>
+                <div class="phone__status-icons">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 9l4 4-4 4"/><path d="M7 17l10-10"/><path d="M15 21l4-4-4-4"/></svg>
+                </div>
+              </div>
+              <div class="phone__app-header">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="#10B981"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                <span>AgroMind</span>
+              </div>
+              <div class="phone__chat">
+                <div class="phone__message phone__message--user">
+                  <div class="phone__msg-avatar phone__msg-avatar--user">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  </div>
+                  <div class="phone__msg-bubble phone__msg-bubble--user">
+                    <div class="phone__msg-image"></div>
+                    <span>What's wrong with my cassava?</span>
+                  </div>
+                </div>
+                <div class="phone__message phone__message--ai">
+                  <div class="phone__msg-avatar phone__msg-avatar--ai">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="#10B981"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                  </div>
+                  <div class="phone__msg-bubble phone__msg-bubble--ai">
+                    <p class="phone__msg-title">Detected <strong>Cassava Mosaic Disease</strong></p>
+                    <p class="phone__msg-confidence">93% confidence</p>
+                    <p class="phone__msg-treatment">Apply neem oil to affected leaves</p>
+                  </div>
+                </div>
+                <div class="phone__typing">
+                  <span></span><span></span><span></span>
+                </div>
+              </div>
+              <div class="phone__input-bar">
+                <div class="phone__input-field">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  <span>Ask about your crops...</span>
+                </div>
+                <button class="phone__mic-btn" aria-label="Voice input">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="2" width="6" height="11" rx="3"/><path d="M5 10a7 7 0 0014 0"/><line x1="12" y1="19" x2="12" y2="22"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- ROI & Impact Banner -->
-  <div class="roi-banner">
+  <!-- What AgroGuardAI Can Do -->
+  <section class="section section--gray" aria-labelledby="capabilities-heading">
     <div class="container">
-      <div class="roi-banner__inner">
-        <div class="roi-banner__item">
-          <strong>20–35%</strong> reduction in input costs with precision AI
-        </div>
-        <div class="roi-banner__divider" aria-hidden="true"></div>
-        <div class="roi-banner__item">
-          <strong>40%</strong> of harvests lost to preventable disease — AgroGuardAI catches it early
-        </div>
-        <div class="roi-banner__divider" aria-hidden="true"></div>
-        <div class="roi-banner__item">
-          <strong>Under 8%</strong> mean error on yield forecasts 90 days out
-        </div>
+      <h2 id="capabilities-heading" class="section-title text-center">What AgroGuardAI Can Do</h2>
+      <div class="capabilities-grid">
+
+        <article class="cap-card">
+          <div class="cap-card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 class="cap-card__title">Disease Detection</h3>
+          <p class="cap-card__desc">Identify crop diseases from farmer descriptions and images.</p>
+        </article>
+
+        <article class="cap-card">
+          <div class="cap-card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+          </div>
+          <h3 class="cap-card__title">Pest Identification</h3>
+          <p class="cap-card__desc">Recognize common pests and recommend next steps.</p>
+        </article>
+
+        <article class="cap-card">
+          <div class="cap-card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+          </div>
+          <h3 class="cap-card__title">Local Language Support</h3>
+          <p class="cap-card__desc">Understand and respond in African languages and dialects.</p>
+        </article>
+
+        <article class="cap-card">
+          <div class="cap-card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M8 12h8"/><path d="M8 9h8"/><path d="M8 15h5"/></svg>
+          </div>
+          <h3 class="cap-card__title">Offline Assistance</h3>
+          <p class="cap-card__desc">Provide guidance even in low-connectivity environments.</p>
+        </article>
+
+        <article class="cap-card">
+          <div class="cap-card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 3 3 6 3s6-1 6-3v-5"/><line x1="12" y1="21" x2="12" y2="12"/></svg>
+          </div>
+          <h3 class="cap-card__title">Agricultural Knowledge</h3>
+          <p class="cap-card__desc">Deliver practical farming advice grounded in agricultural expertise.</p>
+        </article>
+
+        <article class="cap-card">
+          <div class="cap-card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <h3 class="cap-card__title">API Access</h3>
+          <p class="cap-card__desc">Enable developers and researchers to build agricultural applications on top of AgroGuardAI.</p>
+        </article>
+
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- Ecosystem Overview -->
   <section class="section section--gray">
