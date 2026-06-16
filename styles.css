@@ -394,7 +394,20 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .header__actions {
-  display: none; /* Hidden on mobile, shown on tablet+ */
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* Hide secondary buttons on mobile, show only primary CTA */
+.header__actions .btn--secondary {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .header__actions .btn--secondary {
+    display: inline-flex;
+  }
 }
 
 .header__mobile-toggle {
@@ -403,50 +416,177 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
   width: 44px;
   height: 44px;
+  min-width: 44px;
+  min-height: 44px;
   background: none;
   border: none;
   cursor: pointer;
   color: var(--color-text-primary);
+  position: relative;
+  z-index: 1001;
+  margin-left: var(--space-2);
 }
 
-/* --- Mobile Menu --- */
-.mobile-menu {
+.header__mobile-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: currentColor;
+  border-radius: 2px;
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+.header__mobile-toggle span::before,
+.header__mobile-toggle span::after {
+  content: '';
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: currentColor;
+  border-radius: 2px;
+  position: absolute;
+  left: 0;
+  transition: transform 0.3s ease, top 0.3s ease;
+}
+
+.header__mobile-toggle span::before {
+  top: -7px;
+}
+
+.header__mobile-toggle span::after {
+  top: 7px;
+}
+
+/* Hamburger → X animation when menu is open */
+.header__mobile-toggle[aria-expanded="true"] span {
+  background-color: transparent;
+}
+
+.header__mobile-toggle[aria-expanded="true"] span::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.header__mobile-toggle[aria-expanded="true"] span::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+/* --- Mobile Menu Drawer --- */
+.mobile-menu-backdrop {
   display: none;
   position: fixed;
-  top: var(--header-height);
+  top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 998;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.mobile-menu-backdrop--open {
+  display: block;
+  opacity: 1;
+}
+
+.mobile-menu {
+  display: block;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(320px, 85vw);
   background-color: var(--color-background);
   z-index: 999;
-  padding: var(--space-4);
   overflow-y: auto;
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-xl);
+  padding: calc(var(--header-height) + var(--space-6)) var(--space-6) var(--space-6);
 }
 
 .mobile-menu--open {
+  transform: translateX(0);
+}
+
+/* Drawer section groups */
+.mobile-menu__section {
+  margin-bottom: var(--space-6);
+}
+
+.mobile-menu__section + .mobile-menu__section {
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-5);
+}
+
+.mobile-menu__section-title {
   display: block;
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-neutral-400);
+  margin-bottom: var(--space-2);
 }
 
 .mobile-menu__link {
-  display: block;
-  padding: var(--space-3) var(--space-4);
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-semibold);
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  padding: var(--space-3) var(--space-3);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
   color: var(--color-text-primary);
   border-radius: var(--radius-md);
-  transition: var(--transition-ease);
+  transition: background-color 0.2s ease, color 0.2s ease;
+  text-decoration: none;
 }
 
-.mobile-menu__link:hover {
-  background-color: var(--color-neutral-100);
-  color: var(--color-primary-500);
+.mobile-menu__link:hover,
+.mobile-menu__link:focus-visible {
+  background-color: var(--color-primary-50);
+  color: var(--color-primary-700);
+  outline: none;
+}
+
+.mobile-menu__link--active {
+  background-color: var(--color-primary-50);
+  color: var(--color-primary-700);
+  font-weight: var(--font-weight-semibold);
 }
 
 .mobile-menu__actions {
-  margin-top: var(--space-6);
+  margin-top: var(--space-5);
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--color-border);
+}
+
+.mobile-menu__actions .btn {
+  width: 100%;
+  text-align: center;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Reduce motion for drawer animation */
+@media (prefers-reduced-motion: reduce) {
+  .mobile-menu {
+    transition: none;
+  }
+  .header__mobile-toggle span,
+  .header__mobile-toggle span::before,
+  .header__mobile-toggle span::after {
+    transition: none;
+  }
 }
 
 /* --- Hero Section --- */

@@ -65,34 +65,66 @@
   handleScroll();
 })();
 
-// ── Mobile Menu Toggle ─────────────────────────────────────────────
+// ── Mobile Menu Toggle (Slide-out Drawer) ────────────────────────────
 (function initMobileMenu() {
-  const toggle = document.getElementById('mobileToggle');
-  const menu = document.getElementById('mobileMenu');
+  const toggle = document.querySelector('.header__mobile-toggle');
+  const menu = document.querySelector('.mobile-menu');
+  let backdrop = document.querySelector('.mobile-menu-backdrop');
+
   if (!toggle || !menu) return;
 
+  // Create backdrop if it doesn't exist yet
+  if (!backdrop) {
+    backdrop = document.createElement('div');
+    backdrop.className = 'mobile-menu-backdrop';
+    backdrop.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(backdrop);
+  }
+
+  function openMenu() {
+    menu.classList.add('mobile-menu--open');
+    backdrop.classList.add('mobile-menu-backdrop--open');
+    backdrop.setAttribute('aria-hidden', 'false');
+    toggle.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+    // Focus first link in drawer
+    setTimeout(() => {
+      const firstLink = menu.querySelector('.mobile-menu__link');
+      if (firstLink) firstLink.focus();
+    }, 400);
+  }
+
+  function closeMenu() {
+    menu.classList.remove('mobile-menu--open');
+    backdrop.classList.remove('mobile-menu-backdrop--open');
+    backdrop.setAttribute('aria-hidden', 'true');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.focus();
+    document.body.style.overflow = '';
+  }
+
   toggle.addEventListener('click', () => {
-    const isOpen = menu.classList.toggle('mobile-menu--open');
-    toggle.setAttribute('aria-expanded', isOpen);
-    document.body.style.overflow = isOpen ? 'hidden' : '';
+    if (menu.classList.contains('mobile-menu--open')) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
   });
+
+  // Close on backdrop click
+  backdrop.addEventListener('click', closeMenu);
 
   // Close menu on link click
   menu.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
-      menu.classList.remove('mobile-menu--open');
-      toggle.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
+      setTimeout(closeMenu, 150); // Small delay for smoother feel
     });
   });
 
   // Keyboard: Escape closes menu
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && menu.classList.contains('mobile-menu--open')) {
-      menu.classList.remove('mobile-menu--open');
-      toggle.setAttribute('aria-expanded', 'false');
-      toggle.focus();
-      document.body.style.overflow = '';
+      closeMenu();
     }
   });
 
