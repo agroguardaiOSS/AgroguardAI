@@ -1,11 +1,9 @@
 import re
 
-with open('index.html', 'r') as f:
-    content = f.read()
-
-# Make sure it actually inserted properly
-if "Backed By" not in content:
-    partners_section = """
+def process_html(content: str) -> str:
+    # Make sure it actually inserted properly
+    if "Backed By" not in content:
+        partners_section = """
   <!-- Partners Section -->
   <section class="section" style="padding-top: var(--space-8); padding-bottom: var(--space-8); background: var(--color-background-alt); border-bottom: 1px solid var(--color-border);">
     <div class="container text-center">
@@ -18,10 +16,10 @@ if "Backed By" not in content:
     </div>
   </section>
 """
-    content = content.replace("</section>\n\n  <!-- How It Works Section -->", f"</section>\n{partners_section}\n  <!-- How It Works Section -->")
+        content = content.replace("</section>\n\n  <!-- How It Works Section -->", f"</section>\n{partners_section}\n  <!-- How It Works Section -->")
 
-if "AgroRobotics Highlight" not in content:
-    agrorobotics_section = """
+    if "AgroRobotics Highlight" not in content:
+        agrorobotics_section = """
   <!-- AgroRobotics Highlight -->
   <section class="section">
     <div class="container">
@@ -54,7 +52,18 @@ if "AgroRobotics Highlight" not in content:
     </div>
   </section>
 """
-    content = content.replace("</section>\n\n  <!-- Use Cases -->", f"</section>\n{agrorobotics_section}\n  <!-- Use Cases -->")
+        content = content.replace("</section>\n\n  <!-- Use Cases -->", f"</section>\n{agrorobotics_section}\n  <!-- Use Cases -->")
 
-with open('index.html', 'w') as f:
-    f.write(content)
+    return content
+
+def main():
+    with open('index.html', 'r') as f:
+        content = f.read()
+
+    content = process_html(content)
+
+    with open('index.html', 'w') as f:
+        f.write(content)
+
+if __name__ == '__main__':
+    main()
