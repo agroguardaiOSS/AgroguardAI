@@ -3,7 +3,7 @@ import os
 import re
 import glob
 
-os.chdir('/home/ubuntu/AgroguardAI')
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 # Mapping of old image files to new WebP files
 image_map = {
