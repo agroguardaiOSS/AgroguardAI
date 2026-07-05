@@ -1,415 +1,257 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AgroGuardAI - The Intelligence Layer for Global Agriculture</title>
-  <meta name="description" content="Enterprise AI platform for precision agriculture. Unified intelligence layer powering crop health monitoring, autonomous field operations, and data-driven farming decisions worldwide.">
-  <meta property="og:title" content="AgroGuardAI - The Intelligence Layer for Global Agriculture">
-  <meta property="og:description" content="Enterprise AI platform for precision agriculture. Unified intelligence layer powering crop health monitoring, autonomous field operations, and data-driven farming decisions.">
-  <meta property="og:image" content="https://agroguardaiaOS.github.io/AgroguardAI/mylogo.png">
-  <meta property="og:url" content="https://agroguardai.com">
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="AgroGuardAI - The Intelligence Layer for Global Agriculture">
-  <meta name="twitter:description" content="Enterprise AI platform for precision agriculture.">
-  <meta name="twitter:image" content="https://agroguardaiaOS.github.io/AgroguardAI/mylogo.png">
-  <meta name="theme-color" content="#4caf50">
-  <link rel="icon" href="mylogo.webp">
-  <link rel="canonical" href="https://agroguardai.com">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroguardAI Research | Safe Intelligence for Agriculture</title>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-base: #030a06;
+            --card-bg: rgba(12, 22, 16, 0.7);
+            --accent-green: #34d399;
+            --accent-glow: rgba(52, 211, 153, 0.08);
+            --text-primary: #f9fafb;
+            --text-secondary: #9ca3af;
+            --border-light: rgba(255, 255, 255, 0.06);
+            --border-hover: rgba(255, 255, 255, 0.15);
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            /* Subtle radial gradients for a "deep tech" feel */
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(16, 42, 28, 0.4) 0%, transparent 50%),
+                radial-gradient(circle at 85% 30%, rgba(10, 25, 20, 0.5) 0%, transparent 50%);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Fade-in animation for premium feel */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .research-card {
+            max-width: 640px;
+            width: 100%;
+            padding: 48px;
+            border-radius: 16px;
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border-light);
+            box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.8);
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .header {
+            margin-bottom: 36px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .brand-indicator {
+            width: 10px;
+            height: 10px;
+            background-color: var(--accent-green);
+            border-radius: 50%;
+            box-shadow: 0 0 12px var(--accent-green);
+        }
+
+        .logo-text {
+            font-size: 1.75rem;
+            font-weight: 600;
+            letter-spacing: -0.03em;
+        }
+
+        .tagline {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            font-weight: 300;
+            letter-spacing: 0.02em;
+        }
+
+        .mission-statement {
+            font-size: 1.05rem;
+            font-weight: 300;
+            color: #d1d5db;
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+
+        .focus-area {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 40px;
+            border: 1px solid var(--border-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Subtle left border highlight for the focus area */
+        .focus-area::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--accent-green);
+            opacity: 0.8;
+        }
+
+        .focus-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-secondary);
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .focus-title {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .focus-desc {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+
+        .actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            flex: 1;
+            min-width: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.25s ease;
+            background: transparent;
+            border: 1px solid var(--border-light);
+            color: var(--text-primary);
+        }
+
+        .btn i {
+            font-size: 1.1rem;
+        }
+
+        .btn:hover {
+            border-color: var(--border-hover);
+            background: rgba(255, 255, 255, 0.03);
+            transform: translateY(-2px);
+        }
+
+        .btn-hf {
+            color: #ffd700;
+        }
+        
+        .btn-hf:hover {
+            border-color: rgba(255, 215, 0, 0.3);
+            background: rgba(255, 215, 0, 0.03);
+        }
+
+        .btn-email {
+            color: var(--accent-green);
+        }
+
+        .btn-email:hover {
+            border-color: rgba(52, 211, 153, 0.3);
+            background: var(--accent-glow);
+        }
+
+        @media (max-width: 600px) {
+            .research-card {
+                padding: 32px 24px;
+            }
+            .actions {
+                flex-direction: column;
+            }
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <!-- Header Navigation -->
-  <header class="header" role="banner">
-    <div class="header__inner">
-      <a href="index" class="header__logo" aria-label="AgroGuardAI Home">
-        <img src="mylogo.webp" alt="AgroGuardAI" class="header__logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" loading="lazy">
-        <span class="header__logo-icon" style="display:none">AG</span>
-        <span class="header__logo-text">AgroGuardAI</span>
-      </a>
-      <nav class="header__nav" role="navigation" aria-label="Main navigation">
-        <div class="header__nav-links">
-          <a href="intelligence" class="header__nav-link">Intelligence</a>
-          <a href="agromind" class="header__nav-link">AgroMind</a>
-          <a href="agrorobotics" class="header__nav-link">AgroRobotics</a>
-          <a href="api" class="header__nav-link">API</a>
-          <a href="pricing" class="header__nav-link">Pricing</a>
+    <div class="research-card">
+        <div class="header">
+            <div class="brand">
+                <div class="brand-indicator"></div>
+                <h1 class="logo-text">AgroguardAI Research</h1>
+            </div>
+            <p class="tagline">Foundation Models for Agricultural Resilience</p>
         </div>
-      </nav>
-      <div class="header__actions">
-        <a href="contact" class="btn btn--secondary btn--sm">Contact</a>
-        <a href="pricing" class="btn btn--primary btn--sm">Get Started</a>
-      </div>
-      <button class="header__mobile-toggle" aria-label="Toggle menu" aria-expanded="false">
-        <span></span>
-      </button>
-    </div>
-  </header>
 
-  <!-- Mobile Menu Drawer -->
-  <div class="mobile-menu" role="navigation" aria-label="Mobile navigation">
-    <div class="mobile-menu__section">
-      <span class="mobile-menu__section-title">Products</span>
-      <a href="agromind" class="mobile-menu__link">AgroMind</a>
-      <a href="intelligence" class="mobile-menu__link">AgroGuard Intelligence</a>
-      <a href="agrorobotics" class="mobile-menu__link">AgroRobotics</a>
-    </div>
-    <div class="mobile-menu__section">
-      <span class="mobile-menu__section-title">Company</span>
-      <a href="pricing" class="mobile-menu__link">Pricing</a>
-      <a href="api" class="mobile-menu__link">API</a>
-      <a href="contact" class="mobile-menu__link">Contact</a>
-    </div>
-    <div class="mobile-menu__actions">
-      <a href="pricing" class="btn btn--primary">Get Started</a>
-    </div>
-  </div>
-
-  <!-- Hero Section -->
-  <section class="hero hero--home" aria-label="Hero">
-    <div class="container">
-      <div class="hero__content animate-on-scroll">
-        <div class="hero__label">
-          <img src="african-impact-logo.webp" alt="African Impact Initiative" class="hero__label-icon" loading="lazy">
-          African Impact Challenge 2026 Cohort
-        </div>
-        <h1 class="hero__title">
-          The <span class="highlight">Intelligence Layer</span><br>for Global Agriculture
-        </h1>
-        <p class="hero__subtitle">
-          AgroGuardAI is a specialized Large Language Model (LLM) built specifically for the complexities of global agriculture. We provide the foundational intelligence that powers everything from localized, multilingual farmer advisory to autonomous agricultural hardware and robotics. By processing vast agricultural datasets, satellite imagery, and real-time environmental feeds, our model bridges the gap between software and physical farming. Whether you are building the next generation of ag-tech applications through our API, or deploying precision drone fleets in the field, AgroGuardAI serves as the unified brain for a more resilient, data-driven food system.
+        <p class="mission-statement">
+            We are an open-source research initiative dedicated to the safety, alignment, and factuality of artificial intelligence in high-stakes agricultural environments.
         </p>
-        <div class="hero__actions">
-          <a href="pricing" class="btn btn--primary btn--lg">Start Building</a>
-          <a href="intelligence" class="btn btn--outline-white btn--lg">
-            Explore the Platform
-          </a>
+
+        <div class="focus-area">
+            <span class="focus-label">Active Research</span>
+            <h2 class="focus-title">Multilingual Agricultural Alignment</h2>
+            <p class="focus-desc">
+                Investigating hallucination mitigation and safety protocols for LLMs communicating in local dialects (Hausa, Yoruba, Igbo, Fulfulde). Leveraging our specialized Q&A datasets to ensure safe deployment across smallholder farming ecosystems.
+            </p>
         </div>
 
-      </div>
+        <div class="actions">
+            <a href="https://github.com/agroguardaiOSS" class="btn" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+            <a href="https://huggingface.co/AgroguardAI" class="btn btn-hf" target="_blank" rel="noopener noreferrer">
+                🤗 Hugging Face
+            </a>
+            <a href="mailto:agroguardai1@gmail.com" class="btn btn-email">
+                <i class="fas fa-envelope"></i> Contact
+            </a>
+        </div>
     </div>
-  </section>
 
-  <!-- What AgroGuardAI Can Do -->
-  <section class="section section--gray" aria-labelledby="capabilities-heading">
-    <div class="container">
-      <h2 id="capabilities-heading" class="section-title text-center">What AgroGuardAI Can Do</h2>
-      <div class="capabilities-grid">
-
-        <article class="cap-card">
-          <div class="cap-card__icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <h3 class="cap-card__title">Disease Detection</h3>
-          <p class="cap-card__desc">Identify crop diseases from farmer descriptions and images.</p>
-        </article>
-
-        <article class="cap-card">
-          <div class="cap-card__icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
-          </div>
-          <h3 class="cap-card__title">Pest Identification</h3>
-          <p class="cap-card__desc">Recognize common pests and recommend next steps.</p>
-        </article>
-
-        <article class="cap-card">
-          <div class="cap-card__icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
-          </div>
-          <h3 class="cap-card__title">Local Language Support</h3>
-          <p class="cap-card__desc">Understand and respond in African languages and dialects.</p>
-        </article>
-
-        <article class="cap-card">
-          <div class="cap-card__icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M8 12h8"/><path d="M8 9h8"/><path d="M8 15h5"/></svg>
-          </div>
-          <h3 class="cap-card__title">Offline Assistance</h3>
-          <p class="cap-card__desc">Provide guidance even in low-connectivity environments.</p>
-        </article>
-
-        <article class="cap-card">
-          <div class="cap-card__icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 3 3 6 3s6-1 6-3v-5"/><line x1="12" y1="21" x2="12" y2="12"/></svg>
-          </div>
-          <h3 class="cap-card__title">Agricultural Knowledge</h3>
-          <p class="cap-card__desc">Deliver practical farming advice grounded in agricultural expertise.</p>
-        </article>
-
-        <article class="cap-card">
-          <div class="cap-card__icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-          </div>
-          <h3 class="cap-card__title">API Access</h3>
-          <p class="cap-card__desc">Enable developers and researchers to build agricultural applications on top of AgroGuardAI.</p>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Ecosystem Overview -->
-  <section class="section section--gray">
-    <div class="container">
-      <div class="text-center animate-on-scroll">
-        <span class="section-label">The AgroGuardAI Ecosystem</span>
-        <h2 class="section-title">Three Products. One Unified Intelligence.</h2>
-        <p class="section-subtitle">From foundation model to field robot, every component shares the same agricultural intelligence core.</p>
-      </div>
-      <div class="ecosystem-grid">
-        <!-- Card 1: AgroGuard Intelligence -->
-        <div class="ecosystem-card ecosystem-card--intelligence animate-on-scroll">
-          <div class="ecosystem-card__image">
-            <img src="agroguardllms.webp" alt="Neural network LLM processing agricultural data" loading="lazy">
-          </div>
-          <div class="ecosystem-card__content">
-            <div class="ecosystem-card__tag">Software / LLM</div>
-            <h3>AgroGuard Intelligence</h3>
-            <p>The foundational intelligence layer. A specialized Large Language Model trained on massive agricultural datasets, satellite imagery, and crop science to power global farming decisions.</p>
-            <ul class="ecosystem-card__bullets">
-              <li>Satellite-based crop health mapping</li>
-              <li>Multi-modal data processing</li>
-              <li>Global agricultural knowledge base</li>
-            </ul>
-            <a href="intelligence" class="ecosystem-card__link">Explore the Model <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></a>
-          </div>
-        </div>
-
-        <!-- Card 2: AgroMind -->
-        <div class="ecosystem-card ecosystem-card--agromind animate-on-scroll">
-          <div class="ecosystem-card__image">
-            <img src="agromind.webp" alt="AgroMind mobile chat interface mockup" loading="lazy">
-          </div>
-          <div class="ecosystem-card__content">
-            <div class="ecosystem-card__tag">Software / App</div>
-            <h3>AgroMind</h3>
-            <p>A voice-first, multilingual AI chatbot designed for the field. It brings the power of AgroGuard Intelligence to every farmer's pocket, supporting local languages and offline operations.</p>
-            <ul class="ecosystem-card__bullets">
-              <li>Voice-activated field assistant</li>
-              <li>Real-time multilingual support</li>
-              <li>Offline-capable diagnostic tools</li>
-            </ul>
-            <a href="agromind" class="ecosystem-card__link">Meet AgroMind <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></a>
-          </div>
-        </div>
-
-        <!-- Card 3: AgroRobotics -->
-        <div class="ecosystem-card ecosystem-card--robotics animate-on-scroll">
-          <div class="ecosystem-card__image">
-            <img src="agrobotics.webp" alt="Autonomous farming drone in a field" loading="lazy">
-          </div>
-          <div class="ecosystem-card__content">
-            <div class="ecosystem-card__tag">Hardware / Robotics</div>
-            <h3>AgroRobotics</h3>
-            <p>Autonomous hardware for physical field operations. From precision-spraying drones to soil-analyzing rovers, our hardware executes AI-driven tasks with unmatched accuracy.</p>
-            <ul class="ecosystem-card__bullets">
-              <li>Autonomous scout & spray drones</li>
-              <li>Precision agricultural rovers</li>
-              <li>Real-time hardware-AI integration</li>
-            </ul>
-            <a href="agrorobotics" class="ecosystem-card__link">See the Hardware <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- How It Works -->
-  <section class="section">
-    <div class="container">
-      <div class="text-center animate-on-scroll">
-        <span class="section-label">Workflow</span>
-        <h2 class="section-title">From Observation to Action</h2>
-        <p class="section-subtitle">A closed-loop system where AI drives every decision from scouting to treatment execution.</p>
-      </div>
-      <div class="card-grid">
-        <div class="card text-center animate-on-scroll">
-          <div style="font-size:var(--font-size-5xl);font-weight:var(--font-weight-extrabold);color:var(--color-primary-500);margin-bottom:var(--space-4);">01</div>
-          <h3 class="card__title">Monitor</h3>
-          <p class="card__desc">Satellite imagery and autonomous drones continuously survey your fields, capturing high-resolution multispectral data on demand or on schedule.</p>
-        </div>
-        <div class="card text-center animate-on-scroll">
-          <div style="font-size:var(--font-size-5xl);font-weight:var(--font-weight-extrabold);color:var(--color-primary-500);margin-bottom:var(--space-4);">02</div>
-          <h3 class="card__title">Analyze</h3>
-          <p class="card__desc">AgroGuard Intelligence processes imagery in real time, identifying disease hotspots, nutrient deficiencies, pest activity, and yield risks with enterprise-grade accuracy.</p>
-        </div>
-        <div class="card text-center animate-on-scroll">
-          <div style="font-size:var(--font-size-5xl);font-weight:var(--font-weight-extrabold);color:var(--color-primary-500);margin-bottom:var(--space-4);">03</div>
-          <h3 class="card__title">Recommend</h3>
-          <p class="card__desc">The AI generates actionable treatment plans with precise coordinates, dosages, timing, and ROI projections for each affected zone.</p>
-        </div>
-        <div class="card text-center animate-on-scroll">
-          <div style="font-size:var(--font-size-5xl);font-weight:var(--font-weight-extrabold);color:var(--color-primary-500);margin-bottom:var(--space-4);">04</div>
-          <h3 class="card__title">Execute</h3>
-          <p class="card__desc">Autonomous robots execute the treatment plan with centimeter-level precision. No human in the loop. Results logged and verified automatically.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Key Capabilities -->
-  <section class="section section--dark">
-    <div class="container">
-      <div class="text-center animate-on-scroll">
-        <span class="section-label">Capabilities</span>
-        <h2 class="section-title" style="color:var(--color-text-on-dark);">Enterprise-Grade Agricultural AI</h2>
-        <p class="section-subtitle">Built for scale, reliability, and real-world farming challenges.</p>
-      </div>
-      <div class="card-grid">
-        <div class="card animate-on-scroll" style="background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.1);">
-          <h3 class="card__title" style="color:var(--color-text-on-dark);">Multi-Crop Support</h3>
-          <p class="card__desc" style="color:var(--color-text-on-dark);opacity:0.85;">Trained on diverse crop types, climates, and growing conditions. Adaptable to local farming practices and regional challenges.</p>
-        </div>
-        <div class="card animate-on-scroll" style="background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.1);">
-          <h3 class="card__title" style="color:var(--color-text-on-dark);">Real-Time Processing</h3>
-          <p class="card__desc" style="color:var(--color-text-on-dark);opacity:0.85;">On-device AI inference for immediate decision-making. Cloud sync for deeper analysis and historical trend tracking.</p>
-        </div>
-        <div class="card animate-on-scroll" style="background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.1);">
-          <h3 class="card__title" style="color:var(--color-text-on-dark);">Offline Capability</h3>
-          <p class="card__desc" style="color:var(--color-text-on-dark);opacity:0.85;">Works in remote areas with limited connectivity. Syncs data when connection is available.</p>
-        </div>
-        <div class="card animate-on-scroll" style="background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.1);">
-          <h3 class="card__title" style="color:var(--color-text-on-dark);">Precision Targeting</h3>
-          <p class="card__desc" style="color:var(--color-text-on-dark);opacity:0.85;">Centimeter-level accuracy for targeted interventions. Reduces chemical use by up to 80% versus blanket applications.</p>
-        </div>
-        <div class="card animate-on-scroll" style="background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.1);">
-          <h3 class="card__title" style="color:var(--color-text-on-dark);">Predictive Analytics</h3>
-          <p class="card__desc" style="color:var(--color-text-on-dark);opacity:0.85;">Forecast yields, disease outbreaks, and market conditions 90+ days in advance with enterprise-grade accuracy.</p>
-        </div>
-        <div class="card animate-on-scroll" style="background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.1);">
-          <h3 class="card__title" style="color:var(--color-text-on-dark);">API-First Architecture</h3>
-          <p class="card__desc" style="color:var(--color-text-on-dark);opacity:0.85;">Integrate with existing farm management systems, ERPs, and IoT devices. RESTful API with SDKs for Python, Node.js, and more.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- AgroRobotics Highlight -->
-  <section class="section">
-    <div class="container">
-      <div class="agrorobotics-highlight animate-on-scroll">
-        <div style="display: grid; grid-template-columns: 1fr; gap: var(--space-8); align-items: center; @media(min-width: 768px) { grid-template-columns: 1fr 1fr; }">
-          <div style="padding-right: var(--space-4);">
-            <span class="section-label" style="background: rgba(16, 185, 129, 0.2); color: #10b981;">Hardware Division</span>
-            <h2 class="section-title" style="color: white; font-size: var(--font-size-4xl); margin-top: var(--space-2);">AgroRobotics: Autonomous Precision</h2>
-            <p class="section-subtitle" style="color: rgba(255,255,255,0.8); margin-bottom: var(--space-6);">Deploy enterprise-grade scout drones and ground rovers seamlessly integrated with the AgroGuard Intelligence layer. Actionable insights instantly translate into automated field execution.</p>
-            <ul style="list-style:none; padding:0; margin-bottom: var(--space-8); display:flex; flex-direction:column; gap:var(--space-3);">
-              <li style="display:flex; align-items:center; gap:var(--space-2); color:rgba(255,255,255,0.9);">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Scout Drones with Multispectral Imaging
-              </li>
-              <li style="display:flex; align-items:center; gap:var(--space-2); color:rgba(255,255,255,0.9);">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Automated Spraying Rovers
-              </li>
-              <li style="display:flex; align-items:center; gap:var(--space-2); color:rgba(255,255,255,0.9);">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Real-time API Sync
-              </li>
-            </ul>
-            <a href="agrorobotics.html" class="btn btn--primary">Explore Hardware Solutions</a>
-          </div>
-          <div>
-             <img src="AgroguardAIhero.webp" alt="AgroGuardAI Hero" style="width:100%;height:400px;border-radius:var(--radius-xl);object-fit:cover;box-shadow:0 20px 40px rgba(0,0,0,0.3);" loading="lazy">
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Use Cases -->
-  <section class="section">
-    <div class="container">
-      <div class="text-center animate-on-scroll">
-        <span class="section-label">Use Cases</span>
-        <h2 class="section-title">Solving Real Farming Challenges</h2>
-        <p class="section-subtitle">From smallholder farmers to large-scale operations, AgroGuardAI adapts to your needs.</p>
-      </div>
-      <div class="card-grid">
-        <div class="card animate-on-scroll">
-          <h3 class="card__title">Disease Early Detection</h3>
-          <p class="card__desc">Identify crop diseases at the earliest stage, before visible symptoms spread. Reduce losses by 40% or more with timely intervention.</p>
-        </div>
-        <div class="card animate-on-scroll">
-          <h3 class="card__title">Precision Irrigation</h3>
-          <p class="card__desc">Optimize water usage based on real-time soil moisture, weather forecasts, and crop needs. Save up to 30% on water costs.</p>
-        </div>
-        <div class="card animate-on-scroll">
-          <h3 class="card__title">Nutrient Management</h3>
-          <p class="card__desc">Apply fertilizers only where and when needed. Reduce input costs by 20–35% while maintaining or improving yields.</p>
-        </div>
-        <div class="card animate-on-scroll">
-          <h3 class="card__title">Pest & Weed Control</h3>
-          <p class="card__desc">Detect pest infestations and weeds early. Deploy targeted treatments with precision drones, reducing chemical use by 80%.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Section -->
-  <section class="section section--dark">
-    <div class="container">
-      <div class="text-center animate-on-scroll" style="max-width:700px;margin-left:auto;margin-right:auto;">
-        <h2 class="section-title" style="color:var(--color-text-on-dark);">Ready to Transform Your Farm?</h2>
-        <p class="section-subtitle">Join leading agricultural operations using AgroGuardAI to increase yields, reduce costs, and make data-driven decisions.</p>
-        <div style="display:flex;gap:var(--space-4);justify-content:center;flex-wrap:wrap;margin-top:var(--space-8);">
-          <a href="pricing" class="btn btn--primary btn--lg">View Pricing</a>
-          <a href="contact" class="btn btn--outline-white btn--lg">Schedule a Demo</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer" role="contentinfo">
-    <div class="container">
-      <div class="footer__grid">
-        <div>
-          <a href="index" class="header__logo" style="color:var(--color-text-on-dark);margin-bottom:var(--space-2);display:inline-flex;">
-            <span class="header__logo-icon">AG</span>
-            AgroGuardAI
-          </a>
-          <p class="footer__brand-desc">The intelligence layer for global agriculture. One AI ecosystem powering every farm, everywhere.</p>
-        </div>
-        <div>
-          <h4 class="footer__heading">Products</h4>
-          <a href="intelligence" class="footer__link">AgroGuard Intelligence</a>
-          <a href="agromind" class="footer__link">AgroMind</a>
-          <a href="agrorobotics" class="footer__link">AgroRobotics</a>
-          <a href="api" class="footer__link">API Docs</a>
-          <a href="pricing" class="footer__link">Pricing</a>
-        </div>
-        <div>
-          <h4 class="footer__heading">Company</h4>
-          <a href="contact" class="footer__link">Contact</a>
-          <a href="https://medium.com/@agroguardai" target="_blank" rel="noopener" class="footer__link">Blog</a>
-          
-        </div>
-        <div>
-          <h4 class="footer__heading">Legal</h4>
-          <a href="privacy" class="footer__link">Privacy Policy</a>
-          <a href="terms" class="footer__link">Terms of Service</a>
-        </div>
-      </div>
-      <div class="footer__bottom">
-        <span>&copy; 2026 AgroGuardAI. All rights reserved.</span>
-        <div class="footer__social">
-          <a href="https://x.com/AgroguardAI" target="_blank" rel="noopener" aria-label="Follow on X">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          </a>
-          <a href="https://instagram.com/AgroguardAI" target="_blank" rel="noopener" aria-label="Follow on Instagram">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5"/></svg>
-          </a>
-          <a href="https://github.com/agroguardaiaOS" target="_blank" rel="noopener" aria-label="GitHub Profile">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <script src="main.js"></script>
 </body>
 </html>
