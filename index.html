@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgroguardAI Research | Safe Intelligence for Agriculture</title>
+    <title>AgroGuardAI Research | Safe Intelligence for Agriculture</title>
     
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,7 +33,6 @@
 
         body {
             background-color: var(--bg-base);
-            /* Subtle radial gradients for a "deep tech" feel */
             background-image: 
                 radial-gradient(circle at 15% 50%, rgba(16, 42, 28, 0.4) 0%, transparent 50%),
                 radial-gradient(circle at 85% 30%, rgba(10, 25, 20, 0.5) 0%, transparent 50%);
@@ -48,7 +47,37 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Fade-in animation for premium feel */
+        /* Top Navigation for Try AgroMind */
+        .top-nav {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            z-index: 100;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .btn-agromind {
+            background: var(--accent-green);
+            color: #030a06;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(52, 211, 153, 0.2);
+            transition: all 0.25s ease;
+        }
+
+        .btn-agromind:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(52, 211, 153, 0.4);
+            background: #2ebd85;
+        }
+
+        /* Fade-in animation */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
@@ -65,6 +94,7 @@
             border: 1px solid var(--border-light);
             box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.8);
             animation: fadeIn 0.8s ease-out forwards;
+            margin-top: 40px; /* Space for the top button on small screens */
         }
 
         .header {
@@ -103,7 +133,7 @@
             font-size: 1.05rem;
             font-weight: 300;
             color: #d1d5db;
-            margin-bottom: 40px;
+            margin-bottom: 32px;
             line-height: 1.7;
         }
 
@@ -111,13 +141,12 @@
             background: rgba(0, 0, 0, 0.4);
             border-radius: 12px;
             padding: 24px;
-            margin-bottom: 40px;
+            margin-bottom: 24px;
             border: 1px solid var(--border-light);
             position: relative;
             overflow: hidden;
         }
 
-        /* Subtle left border highlight for the focus area */
         .focus-area::before {
             content: '';
             position: absolute;
@@ -152,6 +181,34 @@
             font-weight: 300;
         }
 
+        .upcoming-area {
+            border: 1px dashed rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-bottom: 40px;
+            background: rgba(255, 255, 255, 0.01);
+        }
+
+        .upcoming-area h3 {
+            font-size: 0.9rem;
+            color: #e5e7eb;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .upcoming-area h3 i {
+            color: var(--accent-green);
+        }
+
+        .upcoming-area p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+            margin: 0;
+        }
+
         .actions {
             display: flex;
             gap: 16px;
@@ -176,37 +233,32 @@
             color: var(--text-primary);
         }
 
-        .btn i {
-            font-size: 1.1rem;
-        }
-
         .btn:hover {
             border-color: var(--border-hover);
             background: rgba(255, 255, 255, 0.03);
             transform: translateY(-2px);
         }
 
-        .btn-hf {
-            color: #ffd700;
-        }
-        
+        .btn-hf { color: #ffd700; }
         .btn-hf:hover {
             border-color: rgba(255, 215, 0, 0.3);
             background: rgba(255, 215, 0, 0.03);
         }
 
-        .btn-email {
-            color: var(--accent-green);
-        }
-
+        .btn-email { color: var(--accent-green); }
         .btn-email:hover {
             border-color: rgba(52, 211, 153, 0.3);
             background: var(--accent-glow);
         }
 
         @media (max-width: 600px) {
+            .top-nav {
+                top: 16px;
+                right: 16px;
+            }
             .research-card {
                 padding: 32px 24px;
+                margin-top: 60px;
             }
             .actions {
                 flex-direction: column;
@@ -219,11 +271,18 @@
 </head>
 <body>
 
+    <!-- Top Right Call to Action -->
+    <div class="top-nav">
+        <a href="https://agromind.chat" class="btn-agromind" target="_blank" rel="noopener noreferrer">
+            Try AgroMind <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
+
     <div class="research-card">
         <div class="header">
             <div class="brand">
                 <div class="brand-indicator"></div>
-                <h1 class="logo-text">AgroguardAI Research</h1>
+                <h1 class="logo-text">AgroGuardAI Research</h1>
             </div>
             <p class="tagline">Foundation Models for Agricultural Resilience</p>
         </div>
@@ -240,11 +299,17 @@
             </p>
         </div>
 
+        <!-- Upcoming Publications Section -->
+        <div class="upcoming-area">
+            <h3><i class="fas fa-file-alt"></i> Upcoming Publications</h3>
+            <p>We are currently finalizing our foundational research. Technical whitepapers detailing our multilingual alignment methodologies and model architectures will be released soon.</p>
+        </div>
+
         <div class="actions">
             <a href="https://github.com/agroguardaiOSS" class="btn" target="_blank" rel="noopener noreferrer">
                 <i class="fab fa-github"></i> GitHub
             </a>
-            <a href="https://huggingface.co/AgroguardAI" class="btn btn-hf" target="_blank" rel="noopener noreferrer">
+            <a href="https://huggingface.co/AgroGuardAI" class="btn btn-hf" target="_blank" rel="noopener noreferrer">
                 🤗 Hugging Face
             </a>
             <a href="mailto:agroguardai1@gmail.com" class="btn btn-email">
@@ -254,4 +319,5 @@
     </div>
 
 </body>
-</html>
+                </html>
+                
