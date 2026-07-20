@@ -3,316 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgroGuardAI Research | Safe Intelligence for Agriculture</title>
-    
-    <!-- Google Fonts: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
+    <title>AgroGuardAI Research</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <style>
-        /* =========================================
-           LIGHT MODE (DEFAULT) VARIABLES
-           ========================================= */
         :root {
-            --bg-base: #ffffff;
-            --bg-alt: #f8fafc;
-            --card-bg: rgba(255, 255, 255, 0.7);
-            --accent-green: #10b981; 
-            --accent-glow: rgba(16, 185, 129, 0.1);
-            --text-primary: #0f172a;
-            --text-secondary: #475569;
-            --border-light: rgba(0, 0, 0, 0.08);
-            --border-hover: rgba(0, 0, 0, 0.15);
-            --grid-color: rgba(0, 0, 0, 0.04);
-            --glow-1: rgba(16, 185, 129, 0.08);
-            --glow-2: rgba(16, 185, 129, 0.05);
-            --nav-bg: rgba(255, 255, 255, 0.85);
-            --input-bg: rgba(0, 0, 0, 0.03);
-            --btn-try-text: #ffffff;
-            --agromind-card: #f0fdf4;
+            --bg: #ffffff;
+            --text: #000000;
+            --gray: #666666;
+            --border: #e5e5e5;
         }
-
-        /* =========================================
-           DARK MODE VARIABLES (Auto-switches)
-           ========================================= */
+        
         @media (prefers-color-scheme: dark) {
             :root {
-                --bg-base: #030a06;
-                --bg-alt: #05100a;
-                --card-bg: rgba(12, 22, 16, 0.7);
-                --accent-green: #34d399;
-                --accent-glow: rgba(52, 211, 153, 0.15);
-                --text-primary: #f9fafb;
-                --text-secondary: #9ca3af;
-                --border-light: rgba(255, 255, 255, 0.08);
-                --border-hover: rgba(255, 255, 255, 0.2);
-                --grid-color: rgba(255, 255, 255, 0.02);
-                --glow-1: rgba(16, 42, 28, 0.6);
-                --glow-2: rgba(10, 25, 20, 0.8);
-                --nav-bg: rgba(3, 10, 6, 0.8);
-                --input-bg: rgba(0, 0, 0, 0.5);
-                --btn-try-text: #030a06;
-                --agromind-card: rgba(52, 211, 153, 0.05);
+                --bg: #0a0a0a;
+                --text: #ffffff;
+                --gray: #a3a3a3;
+                --border: #333333;
             }
         }
         
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
-
         body {
-            background-color: var(--bg-base);
-            color: var(--text-primary);
-            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
-            transition: background-color 0.3s, color 0.3s;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
-        /* Backgrounds */
-        .bg-grid {
-            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-            background-image: linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
-                              linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
-            background-size: 50px 50px; z-index: -2;
-            transition: background-image 0.3s;
+        /* Top Bar */
+        .top-bar {
+            display: flex;
+            justify-content: flex-end;
+            padding: 24px 40px;
         }
-        .bg-glow, .bg-glow-2 {
-            position: fixed; z-index: -1; border-radius: 50%; transition: background 0.3s;
+
+        .try-link {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            border: 1px solid var(--border);
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
         }
-        .bg-glow { top: -20%; right: -10%; width: 60vw; height: 60vw; background: radial-gradient(circle, var(--glow-1) 0%, transparent 60%); }
-        .bg-glow-2 { bottom: -20%; left: -10%; width: 50vw; height: 50vw; background: radial-gradient(circle, var(--glow-2) 0%, transparent 60%); }
 
-        /* Navigation */
-        nav {
-            position: fixed; top: 0; width: 100%; padding: 16px 5%;
-            display: flex; justify-content: space-between; align-items: center;
-            background: var(--nav-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-light); z-index: 1000;
+        .try-link:hover {
+            background: var(--text);
+            color: var(--bg);
         }
-        .brand {
-            display: flex; align-items: center; gap: 10px;
-            font-size: 1.25rem; font-weight: 600; text-decoration: none; color: var(--text-primary);
+
+        /* Main Content */
+        .container {
+            max-width: 640px;
+            margin: 60px auto auto;
+            padding: 0 24px 60px;
         }
-        .brand-indicator { width: 8px; height: 8px; background-color: var(--accent-green); border-radius: 50%; box-shadow: 0 0 10px var(--accent-green); }
-        
-        .nav-right { display: flex; align-items: center; gap: 24px; }
-        .nav-links { display: flex; gap: 24px; align-items: center; }
-        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
-        .nav-links a:hover { color: var(--text-primary); }
-        
-        .btn-try {
-            background: var(--accent-green); color: var(--btn-try-text) !important;
-            padding: 8px 20px; border-radius: 50px; font-weight: 600; font-size: 0.9rem;
-            display: flex; align-items: center; gap: 8px; transition: all 0.2s; text-decoration: none;
-            white-space: nowrap;
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            letter-spacing: -0.03em;
         }
-        .btn-try:hover { transform: translateY(-2px); box-shadow: 0 4px 15px var(--accent-glow); }
 
-        /* Sections */
-        section { padding: 120px 5% 80px; max-width: 1200px; margin: 0 auto; }
-        .section-header { text-align: center; margin-bottom: 60px; }
-        .section-tag { color: var(--accent-green); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 12px; }
-        .section-title { font-size: 2.2rem; font-weight: 600; margin-bottom: 16px; }
-
-        /* Hero */
-        .hero { text-align: center; max-width: 900px; padding-top: 160px; }
-        .hero h1 { font-size: 3.5rem; font-weight: 700; line-height: 1.1; margin-bottom: 24px; letter-spacing: -0.02em; }
-        .hero h1 span { color: var(--accent-green); }
-        .hero p { font-size: 1.25rem; color: var(--text-secondary); margin-bottom: 40px; font-weight: 300; line-height: 1.5; }
-        
-        .hero-actions { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
-        .btn { padding: 14px 28px; border-radius: 8px; font-size: 1rem; font-weight: 500; text-decoration: none; transition: all 0.2s; display: flex; align-items: center; gap: 10px; cursor: pointer; border: 1px solid transparent; }
-        .btn-primary { background: var(--text-primary); color: var(--bg-base); }
-        .btn-primary:hover { transform: translateY(-2px); opacity: 0.9; }
-        .btn-outline { background: transparent; color: var(--text-primary); border-color: var(--border-light); }
-        .btn-outline:hover { background: var(--border-light); border-color: var(--border-hover); transform: translateY(-2px); }
-
-        /* Features */
-        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
-        .feature-card {
-            background: var(--card-bg); border: 1px solid var(--border-light);
-            border-radius: 16px; padding: 32px; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-            transition: transform 0.2s, border-color 0.2s;
+        .subtitle {
+            color: var(--gray);
+            font-size: 1.2rem;
+            margin-bottom: 48px;
+            font-weight: 400;
         }
-        .feature-card:hover { transform: translateY(-5px); border-color: var(--border-hover); }
-        .feature-icon { width: 48px; height: 48px; background: var(--accent-glow); color: var(--accent-green); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 24px; }
-        .feature-card h3 { font-size: 1.2rem; margin-bottom: 12px; }
-        .feature-card p { color: var(--text-secondary); font-size: 0.95rem; }
 
-        /* AgroMind Callout Card */
-        .agromind-card {
-            grid-column: 1 / -1; 
-            background: var(--agromind-card);
-            border: 1px solid var(--accent-green);
-            display: flex; flex-direction: column; align-items: center; text-align: center;
+        h2 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--gray);
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 8px;
         }
-        .agromind-card h3 { color: var(--text-primary); display: flex; align-items: center; gap: 8px; }
-        .agromind-card p { max-width: 600px; margin: 0 auto 20px; }
 
-        /* Team */
-        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; margin-top: 40px; }
-        .team-member { padding: 24px; border-radius: 12px; border: 1px solid var(--border-light); background: var(--card-bg); }
-        .team-member h4 { font-size: 1.1rem; margin-bottom: 4px; color: var(--text-primary); }
-        .team-member p { color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 12px; }
-        .team-member .role { color: var(--accent-green); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        p {
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
 
-        /* CTA */
-        .cta-section { background: var(--bg-alt); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light); }
-        .cta-container { max-width: 600px; margin: 0 auto; text-align: center; }
-        .email-form { display: flex; gap: 12px; margin-top: 24px; flex-direction: column; }
-        @media(min-width: 480px) { .email-form { flex-direction: row; } }
-        .email-input { flex: 1; padding: 14px 20px; border-radius: 8px; border: 1px solid var(--border-light); background: var(--input-bg); color: var(--text-primary); font-family: 'Inter'; font-size: 1rem; }
-        .email-input:focus { outline: none; border-color: var(--accent-green); background: transparent; }
+        .notice {
+            background: transparent;
+            border-left: 3px solid var(--text);
+            padding: 12px 20px;
+            margin: 40px 0;
+            font-size: 1rem;
+            font-weight: 500;
+        }
 
-        /* Footer */
-        footer { padding: 60px 5% 40px; border-top: 1px solid var(--border-light); background: var(--bg-base); }
-        .footer-content { max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px; }
-        .footer-brand p { color: var(--text-secondary); font-size: 0.9rem; margin-top: 12px; max-width: 300px; }
-        .link-group h5 { font-size: 0.9rem; margin-bottom: 16px; color: var(--text-primary); }
-        .link-group a { display: block; color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; margin-bottom: 12px; transition: color 0.2s; }
-        .link-group a:hover { color: var(--accent-green); }
-        .footer-bottom { max-width: 1200px; margin: 40px auto 0; padding-top: 24px; border-top: 1px solid var(--border-light); display: flex; justify-content: space-between; color: var(--text-secondary); font-size: 0.85rem; }
+        /* Links Grid */
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 24px;
+        }
 
-        /* Mobile Adjustments */
-        @media (max-width: 768px) {
-            .nav-links { display: none; } /* Hides text links on mobile */
-            .hero h1 { font-size: 2.5rem; }
-            .hero p { font-size: 1.1rem; }
-            section { padding: 100px 5% 60px; }
+        .links a {
+            color: var(--text);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 20px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .links a:hover {
+            background: var(--text);
+            color: var(--bg);
+        }
+
+        .links i {
+            font-size: 1.2rem;
+        }
+
+        @media (min-width: 480px) {
+            .links {
+                flex-direction: row;
+            }
+            .links a {
+                flex: 1;
+                justify-content: center;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="bg-grid"></div>
-    <div class="bg-glow"></div>
-    <div class="bg-glow-2"></div>
-
-    <nav>
-        <a href="#" class="brand">
-            <div class="brand-indicator"></div>
-            AgroGuardAI
-        </a>
+    <div class="top-bar">
+        <a href="https://agromind.chat" class="try-link" target="_blank">Try AgroMind ↗</a>
+    </div>
+    
+    <div class="container">
+        <h1>AgroGuardAI</h1>
+        <div class="subtitle">Safe Intelligence for Agriculture</div>
         
-        <!-- The Nav Right container ensures the Try button stays visible even when text links hide -->
-        <div class="nav-right">
-            <div class="nav-links">
-                <a href="#research">Research</a>
-                <a href="#datasets">Datasets</a>
-                <a href="#team">Team</a>
-                <a href="https://github.com/agroguardaiOSS" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-            </div>
-            <a href="https://agromind.chat" class="btn-try" target="_blank">Try AgroMind</a>
+        <div class="section">
+            <h2>Research Focus</h2>
+            <p>Advancing open-source artificial intelligence to secure global food systems. Our research focuses strictly on AI safety, alignment, and hallucination mitigation.</p>
+            <p>We are actively evaluating foundation models in local agricultural dialects (Hausa, Yoruba, Igbo, Fulfulde) to ensure safe, factual, and deterministic outputs for high-stakes environments.</p>
         </div>
-    </nav>
 
-    <section class="hero">
-        <h1>Open-source AI safety research for <span>African agriculture.</span></h1>
-        <p>LLMs hallucinate when they don’t understand local farming dialects. We’re fixing that by building aligned, factual foundation models for high-stakes agricultural environments.</p>
-        <div class="hero-actions">
-            <a href="#datasets" class="btn btn-primary"><i class="fas fa-database"></i> Explore Datasets</a>
-            <a href="#whitepaper" class="btn btn-outline">Read the Research</a>
+        <div class="notice">
+            Whitepapers and technical methodologies regarding our research will be released soon.
         </div>
-    </section>
 
-    <section id="research">
-        <div class="section-header">
-            <span class="section-tag">Our Focus</span>
-            <h2 class="section-title">The Intelligence Layer</h2>
-            <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto;">Standard AI models fail in the specific, localized contexts of rural farming. We are engineering the guardrails.</p>
-        </div>
-        
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-language"></i></div>
-                <h3>Multilingual Alignment</h3>
-                <p>Evaluating and fine-tuning models to safely process and generate agricultural advisory in Hausa, Yoruba, Igbo, and Fulfulde without critical data loss.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
-                <h3>Hallucination Mitigation</h3>
-                <p>In agriculture, a wrong AI output can ruin a harvest. We are developing strict validation architectures to ensure deterministic, fact-grounded responses.</p>
-            </div>
-            
-            <!-- NEW: AgroMind Live Demo Card -->
-            <div class="feature-card agromind-card">
-                <h3><i class="fas fa-mobile-alt" style="color: var(--accent-green);"></i> Experience AgroMind</h3>
-                <p>Interact with our latest aligned models through our farmer-facing pilot chat interface. Test our safety protocols and multilingual capabilities in real-time.</p>
-                <a href="https://agromind.chat" class="btn btn-primary" target="_blank">Launch Live Demo</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="team">
-        <div class="section-header">
-            <span class="section-tag">The Initiative</span>
-            <h2 class="section-title">Led by Domain Experts</h2>
-        </div>
-        <div class="team-grid">
-            <div class="team-member">
-                <span class="role">Founder & Lead Researcher</span>
-                <h4>Muhammad Zakari</h4>
-                <p>Software engineer specializing in deeptech ecosystems and AI architecture.</p>
-            </div>
-            <div class="team-member">
-                <span class="role">Strategic Advisor</span>
-                <h4>Jin Wang</h4>
-                <p>Ph.D. Candidate bringing critical expertise in smallholder economics and impact evaluation.</p>
-            </div>
-            <div class="team-member">
-                <span class="role">Technical Advisor</span>
-                <h4>Muhammad Khalilullah</h4>
-                <p>Overseeing technical review, evaluation support, and project systems architecture.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="whitepaper" class="cta-section">
-        <div class="cta-container">
-            <h2 class="section-title" style="margin-bottom: 12px;">Whitepapers dropping Q3 2026.</h2>
-            <p style="color: var(--text-secondary);">Be the first to access our technical methodologies on dialectical alignment and model safety.</p>
-            <form class="email-form" onsubmit="event.preventDefault();">
-                <input type="email" class="email-input" placeholder="name@institution.edu" required>
-                <button type="submit" class="btn btn-primary">Get Notified &rarr;</button>
-            </form>
-        </div>
-    </section>
-
-    <footer>
-        <div class="footer-content">
-            <div class="footer-brand">
-                <a href="#" class="brand">
-                    <div class="brand-indicator"></div> AgroGuardAI
+        <div class="section">
+            <h2>Connect & Resources</h2>
+            <div class="links">
+                <a href="https://github.com/agroguardaiOSS" target="_blank">
+                    <i class="fab fa-github"></i> GitHub
                 </a>
-                <p>Advancing sovereign, open-source artificial intelligence to secure global food systems.</p>
-                <div style="margin-top: 16px; color: var(--text-secondary); font-size: 0.85rem;">
-                    <i class="fas fa-map-marker-alt" style="color: var(--accent-green); margin-right: 8px;"></i> Katsina, Nigeria
-                </div>
-            </div>
-            <div class="footer-links">
-                <div class="link-group">
-                    <h5>Code & Data</h5>
-                    <a href="https://huggingface.co/AgroGuardAI" target="_blank">Hugging Face</a>
-                    <a href="https://github.com/agroguardaiOSS" target="_blank">GitHub Repository</a>
-                    <a href="#">Open Datasets</a>
-                </div>
-                <div class="link-group">
-                    <h5>Connect</h5>
-                    <a href="mailto:agroguardai1@gmail.com">Contact Us</a>
-                </div>
+                <a href="https://huggingface.co/AgroGuardAI" target="_blank">
+                    🤗 Hugging Face
+                </a>
+                <a href="mailto:agroguardai1@gmail.com">
+                    <i class="fas fa-envelope"></i> Email
+                </a>
             </div>
         </div>
-        <div class="footer-bottom">
-            <span>&copy; 2026 AgroGuardAI Research. All rights reserved.</span>
-            <span>Open Source under MIT License</span>
-        </div>
-    </footer>
+    </div>
 
 </body>
-    </html>
-                    
+</html>
